@@ -3,7 +3,6 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link></link>
         <title>Bryan Tran's Portfolio</title>
     </head>
 
@@ -22,39 +21,37 @@
         <main>
             <h2>Experiments</h2>
 
-            <label for="ice-cream-choice">Choose a flavor:</label>
-            <input list="ice-cream-flavors" id="ice-cream-choice" name="ice-cream-choice" />
-            <datalist id="ice-cream-flavors">
-                <option value="Chocolate"></option>
-                <option value="Coconut"></option>
-                <option value="Mint"></option>
-                <option value="Strawberry"></option>
-                <option value="Vanilla"></option>
+            <h3>Datalist Tag</h3>
+            <label>Choose a pizza topping:</label>
+            <input list="pizza_toppings" />
+            <datalist id="pizza_toppings">
+                <option value="Peperroni"></option>
+                <option value="Sausage"></option>
+                <option value="Pineapple"></option>
+                <option value="Mushroom"></option>
             </datalist>
+
+            <h3>Select your favorite color</h3>
             <select>
                 <optgroup label="primary colors">
                     <option>red</option>
                     <option>blue</option>
+                    <option>yellow</option>
                 </optgroup>
                 <optgroup label="secondary colors">
                     <option>purple</option>
                     <option>green</option>
+                    <option>orange</option>
                 </optgroup>
             </select>
             
-            
+            <h3>Details Tag</h3>
             <details>
-                <summary>summary</summary>
+                <summary>Summary</summary>
                 <p>blah blah blah</p>
             </details>
             
-            <button>Button</button>
-            
-            <ol>
-                <li>one</li>
-                <li>two</li>
-            </ol>
-            
+            <h3>Table Tag</h3>
             <table>
                 <caption>
                   Superheros and sidekicks
@@ -79,24 +76,48 @@
                   <td>Super speed</td>
                 </tr>
             </table>
+
+            <h3>Figure + Audio Tag</h3>
             <figure>
                 <figcaption>Listen to my song "Autumn Waltz":</figcaption>
                 <audio controls src="./assets/AutumnWaltzAudio.mp3"></audio>
             </figure>
 
+            <h3>Canvas Tag</h3>
             <canvas id="myCanvas">
                 Your browser does not support the canvas tag.
             </canvas>
+            
+            <h3>IFrame Tag</h3>
             <iframe src="https://ucsd.edu"></iframe>
+
+            <h3>Picture Tag</h3>
             <picture>
                 <source srcset="./assets/portrait.JPG"></source>
                 <img src="./assets/portrait2.JPG"></img>
             </picture>
 
+            <h3>SVG Tag</h3>
             <svg width="100" height="100">
                 <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
             </svg>
 
+            <h3>Ordered List of Buttons w/ different inline tags</h3>
+            <ol>
+                <li><button><i>Home Button</i></button></li>
+                <li><button><strong>About Button</strong></button></li>
+                <li><button><pre>Project Button</pre></button></li>
+                <li><button>Contact Button</button></li>
+            </ol>
+            
+            <h3>Code Tag</h3>   
+            <code>
+                def add(x, y):
+                    return x+y
+            </code>
+        
+            <video></video>
+            
             <script>
                 let canvas = document.getElementById("myCanvas");
                 let ctx = canvas.getContext("2d");
