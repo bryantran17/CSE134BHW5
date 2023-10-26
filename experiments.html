@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link></link>
+        <title>Bryan Tran's Portfolio</title>
+    </head>
+
+    <body>
+        <nav>
+            <a href="./index.html">Home</a>
+            <a href="./about.html">About</a>
+            <a href="./projects.html">Projects</a>
+            <a href="./contact.html">Contact</a>
+            <a href="./experiments.html">Experiments</a>
+        </nav>
+        <header>
+            <h1>Bryan Tran's Portfolio</h1>
+        </header>
+    
+        <main>
+            <h2>Experiments</h2>
+
+            <label for="ice-cream-choice">Choose a flavor:</label>
+            <input list="ice-cream-flavors" id="ice-cream-choice" name="ice-cream-choice" />
+            <datalist id="ice-cream-flavors">
+                <option value="Chocolate"></option>
+                <option value="Coconut"></option>
+                <option value="Mint"></option>
+                <option value="Strawberry"></option>
+                <option value="Vanilla"></option>
+            </datalist>
+            <select>
+                <optgroup label="primary colors">
+                    <option>red</option>
+                    <option>blue</option>
+                </optgroup>
+                <optgroup label="secondary colors">
+                    <option>purple</option>
+                    <option>green</option>
+                </optgroup>
+            </select>
+            
+            
+            <details>
+                <summary>summary</summary>
+                <p>blah blah blah</p>
+            </details>
+            
+            <button>Button</button>
+            
+            <ol>
+                <li>one</li>
+                <li>two</li>
+            </ol>
+            
+            <table>
+                <caption>
+                  Superheros and sidekicks
+                </caption>
+                <colgroup>
+                  <col />
+                  <col span="2" class="batman" />
+                  <col span="2" class="flash" />
+                </colgroup>
+                <tr>
+                  <td> </td>
+                  <th scope="col">Batman</th>
+                  <th scope="col">Robin</th>
+                  <th scope="col">The Flash</th>
+                  <th scope="col">Kid Flash</th>
+                </tr>
+                <tr>
+                  <th scope="row">Skill</th>
+                  <td>Smarts</td>
+                  <td>acrobat</td>
+                  <td>Super speed</td>
+                  <td>Super speed</td>
+                </tr>
+            </table>
+            <figure>
+                <figcaption>Listen to my song "Autumn Waltz":</figcaption>
+                <audio controls src="./assets/AutumnWaltzAudio.mp3"></audio>
+            </figure>
+
+            <canvas id="myCanvas">
+                Your browser does not support the canvas tag.
+            </canvas>
+            <iframe src="https://ucsd.edu"></iframe>
+            <picture>
+                <source srcset="./assets/portrait.JPG"></source>
+                <img src="./assets/portrait2.JPG"></img>
+            </picture>
+
+            <svg width="100" height="100">
+                <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+            </svg>
+
+            <script>
+                let canvas = document.getElementById("myCanvas");
+                let ctx = canvas.getContext("2d");
+                ctx.fillStyle = "#FF0000";
+                ctx.fillRect(0, 0, 80, 80);
+            </script>
+        </main>
+    </body>
+</html>
