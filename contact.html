@@ -3,20 +3,21 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="main.css">
         <title>Bryan Tran's Portfolio</title>
     </head>
 
     <body>
-        <nav>
-            <a href="./index.html">Home</a>
-            <a href="./about.html">About</a>
-            <a href="./projects.html">Projects</a>
-            <a href="./contact.html">Contact</a>
-            <a href="./experiments.html">Experiments</a>
-        </nav>
-        
         <header>
             <h1>Bryan Tran's Portfolio</h1>
+            <nav>
+                <ul>
+                  <li><a href="./index.html">Home</a></li>
+                  <li><a href="./about.html">About</a></li>
+                  <li><a href="./projects.html">Projects</a></li>
+                  <li><a href="./contact.html">Contact</a></li>
+                </ul>
+              </nav>
         </header>
     
         <main>
@@ -25,35 +26,31 @@
                 <h2>Contact Me</h2>
             </section>
 
-            <div id="links_container">
-                <h2>Let's Collaborate</h2>
-                <img src="./assets/LinkedinIcon.png" width="100" alt="error loading image">
-                <img src="./assets/GithubIcon.png" width="100" alt="error loading image">
-            </div>
+            <section id="contact_form">
+                <div id="contact_links_container">
+                    <h3>Let's Collaborate!</h3>
+                    <br>
+                    <a href="https://www.linkedin.com/in/bryan-tran-115071215/">
+                        <img src="./assets/LinkedinIcon.png" alt="LinkedIn Icon">
+                    </a>
+                    <a href="https://github.com/bryantran17">
+                        <img src="./assets/GithubIcon.png" alt="Github Icon">
+                    </a>
+                </div>
 
-            <form>
-                <fieldset>
-                    <legend>Name</legend>
-                    <label>First Name</label>
-                    <input>
-                    <label>Last Name</label>
-                    <input>
-                </fieldset>
-                <fieldset>
-                    <legend>Contact Info</legend>
-                    <label>Email</label>
-                    <input>
-                    <label>Phone</label>
-                    <input>
-                </fieldset>
-                <fieldset>
-                    <legend>Message Me</legend>
-                    <textarea></textarea>
-                </fieldset>
-                <fieldset>
-                    <input type="submit">
-                </fieldset>
-            </form>
+                <form>
+                    <input type="text" id="name" name="name" placeholder="Name">
+                    <br>
+                    <input type="email" id="email" name="email" placeholder="Email">
+                    <br>
+                    <input type="tel" id="phone" name="phone" placeholder="Phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+                    <br>
+                    <textarea placeholder="Your Message..."></textarea>
+                    <br>
+                </form>
+
+                <input type="submit">
+            </section>
         </main>
 
         <footer>

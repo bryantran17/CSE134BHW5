@@ -12,38 +12,42 @@
   </head>
   
   <body>
-    <nav>
-      <a href="./index.html">Home</a>
-      <a href="./about.html">About</a>
-      <a href="./projects.html">Projects</a>
-      <a href="./contact.html">Contact</a>
-      <a href="./experiments.html">Experiments</a>
-    </nav>
     <header>
         <h1>Bryan Tran's Portfolio</h1>
+        <nav>
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./projects.html">Projects</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+        </nav>
     </header>
 
     <main>
       <section class="first_component">
-        <h2>Welcome</h2>
+        <h2>Welcome!</h2>
         <p><b>Thank you for visiting, and I look forward to sharing my passion for coding with you!</b></p>
       </section>
 
       <section id="quick_links_components">
-        <h3>Quick Links</h3>
-        <div class="link_container">
-          <img src="./assets/portrait.JPG" width="100" alt="error loading image">
-          <p>A Bit about Me</p>
-        </div>
-        <div class="link_container">
-          <img src="./assets/wireframe.jpg" width="100" alt="error loading image">
-          <p>Some of My Projects</p>
-        </div>
+        <a href="./about.html">
+          <div class="link_container">
+            <img src="./assets/portrait.jpg" alt="Self Portrait">
+            <p>A Bit About Me</p>
+          </div>
+        </a>
+        <a href="./projects.html">
+          <div class="link_container">
+            <img src="./assets/wireframe.jpg" alt="Project Demo Image">
+            <p>Some of My Projects</p>
+          </div>
+        </a>
       </section>
 
       <section id="last_component">
-        <h2>Want to Connect?</h2>
-        <button>Contact Me</button>
+        <h3>Want to Connect?</h3>
+        <a href="./contact.html"><button>Contact Me</button></a>
       </section>
     </main>
 
