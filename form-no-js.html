@@ -3,15 +3,33 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link id="stylesheet" rel="stylesheet" type="text/css" href="main.css">
+        <link rel="stylesheet" type="text/css" href="main.css">
         <title>Bryan Tran's Portfolio</title>
-        <script src="themeswitcher.js"></script>
+        <style>
+            form input:user-invalid + span::before {
+                margin-left: 2%;
+                content: "invalid input";
+                color: red;
+            }
+
+            form textarea:user-invalid + span::before {
+                margin-left: 2%;
+                content: "invalid input";
+                color: red;
+            }
+            form input:user-invalid {
+                border: 2px solid red;
+            }
+
+            form textarea:user-invalid {
+                border: 2px solid red;
+            }
+        </style>
     </head>
 
     <body>
         <header>
             <h1>Bryan Tran's Portfolio</h1>
-            <button id="theme_switch" onclick="toggleStylesheet()">Toggle Light/Dark Mode</button>
             <nav>
                 <ul>
                   <li><a href="./index.html">Home</a></li>
@@ -42,7 +60,7 @@
 
                 <form action="https://httpbin.org/post" method="POST">
                     <label for="name"></label>
-                    <input type="text" id="name" name="name" placeholder="Name (required)" required="true" pattern="/^[a-z ,.'-]+$/i">
+                    <input type="text" id="name" name="name" placeholder="Name (required)" required="true">
                     <span></span>
                     <br>
                     <label for="email"></label>
@@ -50,14 +68,13 @@
                     <span></span>                    <br>
                     <label for="comments"></label>
                     <textarea id="comments" name="comments" placeholder="Your Message... (required)" required="true" maxlength="300"></textarea>
-                    <output id="info_message" for="comments">
-                        <span id="char_count">0</span>
-                        <span> / 300</span>
-                    </output>
+                    <span></span>
                     <br>
                     <input type="hidden" id="bot" name="bot" value="true" required="true">
-                    <output id="error_message" for="name email comments"></output>
                     <input type="submit">
+
+                    <output id="info_message" for="name email phone comments"></output>
+                    <output id="error_message" for="name email phone comments"></output>
                 </form>
             </section>
         </main>
@@ -66,6 +83,5 @@
             <hr>
             <p>Made by Bryan Tran</p>
         </footer>
-        <script src="script.js"></script>
     </body>
 </html>

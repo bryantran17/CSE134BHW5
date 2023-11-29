@@ -1,17 +1,13 @@
 :root {
-    --primary-bg-color: rgb(255, 232, 163);
-    --secondary-bg-color: rgb(209, 236, 255);
-    --tertiary-bg-color: white;
+    --primary-bg-color: rgb(85, 64, 0);
+    --secondary-bg-color: rgb(7, 0, 75);
+    --tertiary-bg-color: black;
     --fourth-bg-color: color-mix(in srgb, var(--primary-bg-color), var(--secondary-bg-color));
-    --primary-text-color: rgb(51, 46, 33);
+    --primary-text-color: rgb(255, 255, 255);
     color: var(--primary-text-color);
     font-family: Arial, Helvetica, sans-serif, sans-serif;
     
 }
-#theme_switch {
-    display: none;
-}
-
 /* Main Component Styles */
 h1 {
     margin-right: auto;
@@ -37,6 +33,7 @@ header {
     box-shadow: 0 1px 8px #ddd;
     margin: 0;
     height: 1rem;
+    background-color: var(--tertiary-bg-color);
 }
 
 header li {
@@ -50,6 +47,10 @@ header a {
     justify-content: space-evenly;
     text-decoration: none;
     font-size: large;
+}
+
+body {
+    background-color: var(--tertiary-bg-color);
 }
 
 .first_component {
@@ -281,8 +282,8 @@ form textarea {
 }
 
 input[type=submit] {
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
     font-size: large;
     padding: 2%;
     width: 100%;
