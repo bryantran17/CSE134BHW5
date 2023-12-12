@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link id="stylesheet" rel="stylesheet" type="text/css" href="main.css">
+        <title>Bryan Tran's Portfolio</title>
+    </head>
+        
+<body>
+    <header>
+        <h1>Bryan Tran's Portfolio</h1>
+        <nav>
+            <ul>
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./about.html">About</a></li>
+              <li><a href="./projects.html">Projects</a></li>
+              <li><a href="./contact.html">Contact</a></li>
+            </ul>
+          </nav>
+    </header>
+    
+    <h2>Current Weather</h2>
+    <!-- Weather Widget Component -->
+    <weather-widget></weather-widget>
+    <noscript>
+        <p>Current Weather Conditions Unavailable</p>
+    </noscript>
+
+    <!-- Web Component Definition -->
+    <script>
+        class WeatherWidget extends HTMLElement {
+            constructor() {
+                super();
+                this.attachShadow({ mode: 'open' });
+            }
+
+            connectedCallback() {
+                this.render();
+                this.fetchWeatherData();
+            }
+
+            render() {
+                this.shadowRoot.innerHTML = `
+                    <style>
+                        /* Add your component styling here */
+                    </style>
+                    <div id="weather-info">
+                        <h2>Current Weather</h2>
+                        <p>Loading...</p>
+                    </div>
+                `;
+            }
+
+            fetchWeatherData() {
+                // UCSD La Jolla coordinates
+                const apiUrl = 'https://api.weather.gov/points/32.8801,-117.234';
+
+                fetch(apiUrl)
+                    .then(response => response.json())
+                    .then(data => fetch(data.properties.forecastHourly))
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentWeather = data.properties.periods[0];
+                        this.displayWeatherInfo(currentWeather);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching weather data:', error);
+                        this.showError();
+                    });
+            }
+
+            displayWeatherInfo(weather) {
+                const weatherInfo = this.shadowRoot.getElementById('weather-info');
+                let icon = weather.icon;
+                let iconSrc = icon.slice(0,icon.length-13);
+                weatherInfo.innerHTML = `
+                    <img src="${iconSrc}" alt="Weather Icon" width="50em" display:"inline-block">
+                    <p>${weather.shortForecast} ${weather.temperature} &deg;${weather.temperatureUnit}</p>
+                `;
+            }
+
+            showError() {
+                const weatherInfo = this.shadowRoot.getElementById('weather-info');
+                weatherInfo.innerHTML = '<h2>Current Weather</h2><p>Error fetching data.</p>';
+            }
+        }
+
+        customElements.define('weather-widget', WeatherWidget);
+    </script>
+</body>
+</html>

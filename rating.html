@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link id="stylesheet" rel="stylesheet" type="text/css" href="main.css">
+        <title>Bryan Tran's Portfolio</title>
+        <style>
+            rating-widget {
+                display: none;
+            }
+            rating-widget > p {
+                height: 2em;
+            }
+            #star-container {
+                display: flex;
+                flex-direction: row-reverse;
+            }
+            #star-container span{
+                cursor: pointer;
+                font-size: 5em;
+            }
+            #star-container span:hover, 
+            #star-container span:hover ~ span,
+            #star-container span[data-clicked=true],
+            #star-container span[data-clicked=true] ~ span{
+                color: yellow;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>Bryan Tran's Portfolio</h1>
+            <nav>
+                <ul>
+                  <li><a href="./index.html">Home</a></li>
+                  <li><a href="./about.html">About</a></li>
+                  <li><a href="./projects.html">Projects</a></li>
+                  <li><a href="./contact.html">Contact</a></li>
+                </ul>
+              </nav>
+        </header>
+    
+        <main>
+            <h2>Rating Widget</h2>
+            <noscript>
+                <form action="https://httpbin.org/post" method="POST">
+                    <label for="rating">How satisfied are you?</label>
+                    <input type="hidden" name="question" value="How satisfied are you?">
+                    <input type="hidden" name="sentBy" value="HTML">
+                    <input type="number" id="rating" name="rating" min="1" max="5" value="0" required>
+                    <button type="submit">Submit</button>
+                </form>
+            </noscript>
+            <rating-widget>
+                <div id=star-container>
+                    <span onclick="rate(5)" id="star5">★</span>
+                    <span onclick="rate(4)" id="star4">★</span>
+                    <span onclick="rate(3)" id="star3">★</span>
+                    <span onclick="rate(2)" id="star2">★</span>
+                    <span onclick="rate(1)" id="star1">★</span>
+                </div>
+                <p id="message"></p>
+            </rating-widget>
+        </main>
+
+        <footer>
+            <hr>
+            <p>Made by Bryan Tran</p>
+        </footer>
+        <script>
+            document.getElementsByTagName('rating-widget')[0].style.display = 'inline-block';
+            function rate(rating) {
+                // Set the active state for clicked star and reset others
+                for (let i = 1; i <= 5; i++) {
+                    const star = document.getElementById(`star${i}`);
+                    star.setAttribute('data-clicked', i <= rating);
+                }
+
+                const message = document.getElementById('message');
+                if (rating < 4) {
+                    message.textContent = `Thanks for your feedback of ${rating} stars. We'll try to do better!`;
+                }
+                else {
+                    message.textContent = `Thanks for ${rating} star rating!`;
+                }
+
+                // Add your code to send the rating to the server with headers and form values
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', 'https://httpbin.org/post', true);
+                
+                // Set headers
+                xhr.setRequestHeader('X-Sent-By', 'JS');
+
+                // Set form data
+                const formData = new FormData();
+                formData.append('question', 'How satisfied are you?');
+                formData.append('sentBy', 'JS');
+                formData.append('rating', rating);
+
+                // Send the request
+                xhr.send(formData);
+            }
+        </script>
+    </body>
+</html>
