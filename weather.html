@@ -19,7 +19,7 @@
             </ul>
           </nav>
     </header>
-    
+
     <h2>Current Weather</h2>
     <!-- Weather Widget Component -->
     <weather-widget></weather-widget>
@@ -76,7 +76,12 @@
                 let iconSrc = icon.slice(0,icon.length-13);
                 weatherInfo.innerHTML = `
                     <img src="${iconSrc}" alt="Weather Icon" width="50em" display:"inline-block">
-                    <p>${weather.shortForecast} ${weather.temperature} &deg;${weather.temperatureUnit}</p>
+                    <span style="margin-left: 1em;">${weather.shortForecast} ${weather.temperature} &deg;${weather.temperatureUnit}</span>
+                    <p>Probability of Precipitation: ${weather.probabilityOfPrecipitation.value}%</p>
+                    <p>Dewpoint: ${weather.dewpoint.value} &deg;C</p>
+                    <p>Relative Humidity: ${weather.relativeHumidity.value}%</p>
+                    <p>Wind Speed: ${weather.windSpeed}</p>
+                    <p>Wind Direction: ${weather.windDirection}</p>
                 `;
             }
 
